@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdsFlow</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegacao principal">
+        <div class="brand">
+          <span class="brand-mark">AF</span>
+          <div>
+            <strong>AdsFlow</strong>
+            <small>IA para Meta Ads</small>
+          </div>
+        </div>
+
+        <nav>
+          <a class="active" href="#dashboard">Dashboard</a>
+          <a href="#simpleMode">Modo simples</a>
+          <a href="#builder">Criador IA</a>
+          <a href="#plans">Planos</a>
+          <a href="#settings">Conexoes</a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span>Conta atual</span>
+          <strong>Cliente Demo</strong>
+          <small>Modo preview seguro</small>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AdsFlow SaaS</p>
+            <h1>Anuncios no Facebook e Instagram em poucos passos</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-button" id="loginBtn" type="button">Entrar</button>
+            <button class="primary-button" id="connectMeta" type="button">Conectar Meta</button>
+          </div>
+        </header>
+
+        <section class="hero-strip" aria-label="Proposta do AdsFlow">
+          <div>
+            <strong>Crie, revise e publique campanhas com ajuda de IA.</strong>
+            <span>Feito para pequenos negocios, gestores de trafego e agencias que querem vender uma experiencia simples.</span>
+          </div>
+          <button type="button" data-jump="#builder">Criar primeiro anuncio</button>
+        </section>
+
+        <section id="dashboard" class="metrics" aria-label="Resumo">
+          <article>
+            <span>Receita mensal simulada</span>
+            <strong>R$ 497</strong>
+          </article>
+          <article>
+            <span>Clientes ativos</span>
+            <strong>1</strong>
+          </article>
+          <article>
+            <span>Rascunhos</span>
+            <strong id="draftCount">0</strong>
+          </article>
+          <article>
+            <span>Status Meta</span>
+            <strong id="metaStatus">Preview</strong>
+          </article>
+        </section>
+
+        <section class="account-grid">
+          <form class="login-panel" id="loginForm">
+            <div class="panel-heading">
+              <p class="eyebrow">Acesso</p>
+              <h2>Entrar no AdsFlow</h2>
+            </div>
+            <label>
+              E-mail
+              <input name="email" type="email" placeholder="cliente@empresa.com" required />
+            </label>
+            <label>
+              Senha
+              <input name="password" type="password" placeholder="Digite uma senha" required />
+            </label>
+            <button type="submit">Acessar painel</button>
+            <small class="form-help">Se o e-mail ainda nao existir, o AdsFlow cria a conta automaticamente.</small>
+          </form>
+
+          <section class="client-panel">
+            <div class="panel-heading">
+              <p class="eyebrow">Operacao</p>
+              <h2>Cliente atual</h2>
+            </div>
+            <div class="client-list">
+              <button class="client-row active" type="button">
+                <span>
+                  <strong>Cliente Demo</strong>
+                  <small>Facebook + Instagram</small>
+                </span>
+                <em>Ativo</em>
+              </button>
+              <button class="client-row" type="button">
+                <span>
+                  <strong>Novo cliente</strong>
+                  <small>Conectar conta Meta</small>
+                </span>
+                <em>Setup</em>
+              </button>
+            </div>
+            <form class="client-form" id="clientForm">
+              <label>
+                Nome do cliente
+                <input name="name" placeholder="Ex: Barbearia Central" required />
+              </label>
+              <label>
+                Conta de anuncio
+                <input name="adAccountId" placeholder="act_000000000" />
+              </label>
+              <button type="submit">Cadastrar cliente</button>
+            </form>
+          </section>
+        </section>
+
+        <section class="onboarding-panel" id="onboarding">
+          <div class="panel-heading">
+            <p class="eyebrow">Setup automatico</p>
+            <h2>Qual e o seu nicho?</h2>
+          </div>
+          <form class="onboarding-form" id="onboardingForm">
+            <label>
+              Nicho do negocio
+              <select name="niche">
+                <option value="restaurante">Restaurante</option>
+                <option value="sorveteria">Sorveteria</option>
+                <option value="hamburgueria">Hamburgueria</option>
+                <option value="roupas">Loja de roupas</option>
+                <option value="barbearia">Barbearia</option>
+                <option value="estetica">Estetica e beleza</option>
+                <option value="academia">Academia</option>
+                <option value="servicos">Servicos locais</option>
+              </select>
+            </label>
+            <label>
+              Objetivo principal
+              <select name="businessGoal">
+                <option value="vender mais pelo instagram">Vender mais pelo Instagram</option>
+                <option value="receber mensagens no whatsapp">Receber mensagens no WhatsApp</option>
+                <option value="levar pessoas para loja fisica">Levar pessoas para loja fisica</option>
+                <option value="ganhar seguidores qualificados">Ganhar seguidores qualificados</option>
+              </select>
+            </label>
+            <label>
+              Experiencia com anuncios
+              <select name="experienceLevel">
+                <option value="iniciante">Sou iniciante</option>
+                <option value="ja_anunciei">Ja anunciei antes</option>
+                <option value="agencia">Tenho agencia/equipe</option>
+              </select>
+            </label>
+            <button type="submit">Salvar e simplificar meu painel</button>
+          </form>
+        </section>
+
+        <section id="simpleMode" class="simple-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Instagram direto</p>
+            <h2>Modo simples para patrocinar</h2>
+          </div>
+          <div class="simple-grid">
+            <article class="simple-card">
+              <span>1</span>
+              <strong>Conectar Instagram</strong>
+              <p>O cliente conecta a conta profissional pelo login oficial da Meta.</p>
+              <button type="button" id="connectInstagramBtn">Conectar Instagram</button>
+            </article>
+            <article class="simple-card">
+              <span>2</span>
+              <strong>Ler perfil</strong>
+              <p>A IA usa bio, nome, seguidores e site para montar o anuncio.</p>
+              <button type="button" id="importInstagramBtn">Importar perfil</button>
+              <button class="ghost-button" type="button" id="demoInstagramBtn">Usar demo</button>
+            </article>
+            <article class="simple-card">
+              <span>3</span>
+              <strong>Patrocinar</strong>
+              <p>O AdsFlow preenche campanha, publico, texto e posicionamento.</p>
+              <button type="button" id="simpleCampaignBtn">Gerar campanha</button>
+            </article>
+          </div>
+          <div class="instagram-summary" id="instagramSummary">
+            <strong>Nenhum Instagram importado</strong>
+            <span>Conecte a Meta ou use o demo para testar o fluxo simples.</span>
+          </div>
+        </section>
+
+        <section id="builder" class="workspace">
+          <form class="panel" id="adForm">
+            <div class="panel-heading">
+              <p class="eyebrow">Criador IA</p>
+              <h2>Dados da campanha</h2>
+            </div>
+
+            <label>
+              Nome da campanha
+              <input name="name" value="Campanha Teste AdsFlow" required />
+            </label>
+
+            <div class="grid-2">
+              <label>
+                Produto ou oferta
+                <input name="product" placeholder="Ex: curso, loja, delivery, servico local" required />
+              </label>
+              <label>
+                Publico-alvo
+                <input name="audience" placeholder="Ex: mulheres 25-45 em Sao Paulo" required />
+              </label>
+            </div>
+
+            <div class="grid-3">
+              <label>
+                Objetivo
+                <select name="objective">
+                  <option value="OUTCOME_LEADS">Leads</option>
+                  <option value="OUTCOME_TRAFFIC">Trafego</option>
+                  <option value="OUTCOME_SALES">Vendas</option>
+                  <option value="OUTCOME_ENGAGEMENT">Engajamento</option>
+                </select>
+              </label>
+              <label>
+                Orcamento diario
+                <input name="dailyBudget" type="number" min="10" value="30" />
+              </label>
+              <label>
+                Tom
+                <select name="tone">
+                  <option>direto</option>
+                  <option>premium</option>
+                  <option>popular</option>
+                  <option>urgente</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="grid-3">
+              <label>
+                Localizacao
+                <input name="location" value="Brasil" />
+              </label>
+              <label>
+                Idade
+                <input name="age" value="25-54" />
+              </label>
+              <label>
+                Posicionamento
+                <select name="placement">
+                  <option>Facebook + Instagram</option>
+                  <option>Instagram</option>
+                  <option>Facebook</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              URL de destino
+              <input name="url" type="url" placeholder="https://seusite.com/oferta" />
+            </label>
+
+            <div class="actions">
+              <button type="button" id="generateBtn">Gerar com IA</button>
+              <button type="submit">Criar rascunho Meta</button>
+            </div>
+          </form>
+
+          <section class="preview">
+            <div class="phone">
+              <div class="phone-top"></div>
+              <article class="ad-card">
+                <div class="ad-page">
+                  <span class="avatar"></span>
+                  <div>
+                    <strong>Sua marca</strong>
+                    <small>Patrocinado</small>
+                  </div>
+                </div>
+                <p id="primaryText">Preencha os dados e gere um texto com IA para visualizar o anuncio.</p>
+                <div class="creative">
+                  <span>Imagem / Video</span>
+                </div>
+                <div class="ad-footer">
+                  <div>
+                    <strong id="headline">Titulo do anuncio</strong>
+                    <small id="description">Descricao curta</small>
+                  </div>
+                  <button type="button">Saiba mais</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="recommendations">
+              <h2>Sugestoes da IA</h2>
+              <ul id="ideas"></ul>
+            </div>
+          </section>
+        </section>
+
+        <section id="plans" class="plans">
+          <div class="section-heading">
+            <p class="eyebrow">Venda do produto</p>
+            <h2>Planos sugeridos para revenda</h2>
+          </div>
+          <div class="plan-grid">
+            <article class="plan">
+              <span>Teste gratis</span>
+              <strong>7 dias</strong>
+              <p>Para experimentar o AdsFlow, conectar Instagram e gerar campanhas simples.</p>
+              <button type="button" data-plan-key="trial">Comecar teste</button>
+            </article>
+            <article class="plan featured">
+              <span>Anual mensal</span>
+              <strong>R$ 197/mês</strong>
+              <p>Compromisso anual, mas cobrando apenas R$ 197 por mes no cartao.</p>
+              <button type="button" data-plan-key="annual_monthly_197">Assinar anual</button>
+            </article>
+            <article class="plan">
+              <span>Mensal livre</span>
+              <strong>R$ 297/mês</strong>
+              <p>Para pagar mes a mes, sem compromisso anual.</p>
+              <button type="button" data-plan-key="monthly_297">Assinar mensal</button>
+            </article>
+          </div>
+        </section>
+
+        <section id="campaigns" class="table-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Campanhas</p>
+            <h2>Rascunhos criados</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Campanha</th>
+                <th>Objetivo</th>
+                <th>Orcamento</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="drafts">
+              <tr>
+                <td colspan="4">Nenhum rascunho ainda.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="settings" class="settings-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Conexoes</p>
+            <h2>Checklist para vender com seguranca</h2>
+          </div>
+          <div class="checklist">
+            <label><input type="checkbox" checked /> Politica de privacidade publicada</label>
+            <label><input type="checkbox" /> OAuth da Meta configurado</label>
+            <label><input type="checkbox" /> Permissoes ads_read e ads_management em revisao</label>
+            <label><input type="checkbox" /> Pagamento e planos conectados</label>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

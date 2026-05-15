@@ -1,0 +1,14 @@
+﻿{
+  "name": "adsflow",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AdsFlow: MVP SaaS para criar anuncios Facebook/Instagram com IA e preparar publicacao via Meta Marketing API.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check db.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
